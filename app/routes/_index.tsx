@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import TodoApp from "~/components/TodoApp";
+import { TodoApp } from "~/components";
 
 export const meta: MetaFunction = () => {
   return [

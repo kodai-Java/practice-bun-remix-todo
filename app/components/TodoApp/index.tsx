@@ -1,9 +1,9 @@
 import { FC, useState } from "react";
-import TodoForm from "./TodoForm";
-import TodoList from "./TodoList";
-import Container from "@mui/material/Container";
 import { Todo } from "./Todo";
 import { useTodoFunctions } from "./hooks/useTodoFunctions";
+import { Container } from "@mui/material";
+import TodoForm from "./TodoForm";
+import TodoList from "./TodoList";
 
 export const TodoApp: FC = () => {
   // 状態で永続化してみる
