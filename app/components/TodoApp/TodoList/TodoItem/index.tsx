@@ -1,9 +1,7 @@
 import { FC } from "react";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import IconButton from "@mui/material/IconButton";
-import Checkbox from "@mui/material/Checkbox";
-import { Todo } from "../Todo";
+import { Todo } from "../../Todo";
+import { Checkbox, IconButton, ListItem, ListItemText } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 type Props = {
   todo: Todo;
@@ -27,7 +25,9 @@ export const TodoItem: FC<Props> = ({
           edge="end"
           aria-label="delete"
           onClick={() => removeTodo(index)}
-        ></IconButton>
+        >
+          <DeleteIcon />
+        </IconButton>
       }
     >
       <Checkbox
