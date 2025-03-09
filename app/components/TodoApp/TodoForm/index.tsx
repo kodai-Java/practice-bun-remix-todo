@@ -1,10 +1,10 @@
 import { FC, useState } from "react";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+import { Button, TextField } from "@mui/material";
 
 type Props = {
   addTodo: (task: string) => void;
 };
+
 export const TodoForm: FC<Props> = ({ addTodo }) => {
   const [value, setValue] = useState("");
 

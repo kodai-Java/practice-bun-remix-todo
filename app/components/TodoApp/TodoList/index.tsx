@@ -1,7 +1,7 @@
 import { FC } from "react";
-import List from "@mui/material/List";
 import { Todo } from "../Todo";
-import TodoItem from "../TodoItem";
+import TodoItem from "./TodoItem";
+import { List } from "@mui/material";
 
 type Props = {
   todos: Todo[];
