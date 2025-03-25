@@ -28,3 +28,5 @@ replay_pid*
 /build
 
 *storybook.log
+
+.react-router/
