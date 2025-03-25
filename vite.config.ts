@@ -7,5 +7,14 @@ import tailwindcss from "@tailwindcss/vite";
 const isStorybook = process.argv[1]?.includes("storybook");
 
 export default defineConfig({
+  ssr: {
+    noExternal: [
+      "@remix-run/react",
+      "@remix-run/node",
+      "@remix-run/server-runtime",
+      "react-router",
+      "react-router-dom",
+    ],
+  },
   plugins: [tailwindcss(), !isStorybook && reactRouter(), tsconfigPaths()],
 });
