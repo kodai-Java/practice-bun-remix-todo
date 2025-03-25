@@ -8,13 +8,7 @@ const isStorybook = process.argv[1]?.includes("storybook");
 
 export default defineConfig({
   ssr: {
-    noExternal: [
-      "@remix-run/react",
-      "@remix-run/node",
-      "@remix-run/server-runtime",
-      "react-router",
-      "react-router-dom",
-    ],
+    noExternal: ["react-router"],
   },
   plugins: [tailwindcss(), !isStorybook && reactRouter(), tsconfigPaths()],
 });
