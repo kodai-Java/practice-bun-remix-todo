@@ -16,7 +16,8 @@ export default function handleRequest(
   loadContext: AppLoadContext
 ) {
   let prohibitOutOfOrderStreaming =
-    isBotRequest(request.headers.get("user-agent")) || reactRouterContext.isSpaMode;
+    isBotRequest(request.headers.get("user-agent")) ||
+    reactRouterContext.isSpaMode;
 
   return prohibitOutOfOrderStreaming
     ? handleBotRequest(
@@ -46,11 +47,6 @@ function isBotRequest(userAgent: string | null) {
     return isbotModule.isbot(userAgent);
   }
 
-  // isbot < 3.8.0
-  if ("default" in isbotModule && typeof isbotModule.default === "function") {
-    return isbotModule.default(userAgent);
-  }
-
   return false;
 }
 
@@ -63,11 +59,7 @@ function handleBotRequest(
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
-      <ServerRouter
-        context={reactRouterContext}
-        url={request.url}
-        abortDelay={ABORT_DELAY}
-      />,
+      <ServerRouter context={reactRouterContext} url={request.url} />,
       {
         onAllReady() {
           shellRendered = true;
@@ -113,11 +105,7 @@ function handleBrowserRequest(
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
-      <ServerRouter
-        context={reactRouterContext}
-        url={request.url}
-        abortDelay={ABORT_DELAY}
-      />,
+      <ServerRouter context={reactRouterContext} url={request.url} />,
       {
         onShellReady() {
           shellRendered = true;
